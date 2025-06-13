@@ -1,19 +1,14 @@
 
 
-const nombre = 'Mauro';
-const apellido = 'Mancilla';
+const promesa = new Promise( (resolve, reject) => {
 
-// const nombreCompleto = nombre + ' ' + apellido;
-const nombreCompleto = `
-${nombre} 
-${apellido}
-${ 1 + 1 }
-`;
+  setTimeout( () => {
+    // console.log('2 segundos después');
+    resolve();
+  }, 2000);
 
-console.log(`Hola, mi nombre es ${nombreCompleto}.`);
+})
 
-function getSaludo(nombre) {
-  return `Hola Mundo`;
-}
-
-console.log( `Este es un texto ${getSaludo()} `)
+promesa.then( () => {
+  console.log('Then de la promesa');
+})
