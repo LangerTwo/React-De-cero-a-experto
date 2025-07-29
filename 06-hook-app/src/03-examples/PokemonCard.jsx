@@ -1,9 +1,19 @@
-import React from 'react'
+import React, { use, useLayoutEffect, useRef } from 'react'
 
 export const PokemonCard = ({ id, name, sprites}) => {
+
+  const h2Ref = useRef();
+  
+  useLayoutEffect(() => {
+
+    const { height, width } = h2Ref.current.getBoundingClientRect();
+    console.log('useLayoutEffect', { height, width });
+
+  }, [])
+
   return (
-    <section style={{ height: 200 }} className='bg-success text-center'>
-        <h2 className='text-capitalize'>#{id} - {name}</h2>
+    <section style={{ height: 200, display: 'flex', flexDirection: 'row' }} className='bg-success text-center'>
+        <h2 ref={h2Ref} className='text-capitalize'>#{id} - {name}</h2>
 
         {/* Imagenes */}
         <div>
