@@ -1,4 +1,5 @@
 import React from 'react'
+import { UserProvider } from './context/UserProvider';
 import { Routes, Route, Navigate, Link } from 'react-router-dom';
 import { HomePage } from './HomePage'
 import { AboutPage } from './AboutPage'
@@ -7,18 +8,18 @@ import { Navbar } from './Navbar';
 
 export const MainApp = () => {
   return (
-    <>
-        {/* <h1>MainApp</h1> */}
-        <Navbar />
-        <hr />
+    <UserProvider>
+      {/* <h1>MainApp</h1> */}
+      <Navbar />
+      <hr />
 
 
-        <Routes>
-            <Route path="/" element={<HomePage />} />
-            <Route path="about" element={<AboutPage />} />
-            <Route path="login" element={<LoginPage />} />
-            <Route path="/*" element={<Navigate to="/" />} />
-        </Routes>
-    </>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="about" element={<AboutPage />} />
+        <Route path="login" element={<LoginPage />} />
+        <Route path="/*" element={<Navigate to="/" />} />
+      </Routes>
+    </UserProvider>
   )
 }
